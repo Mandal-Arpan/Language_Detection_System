@@ -129,22 +129,10 @@ Display probability distribution for all languages
 
 👤 Author Details
 
-Author: Lokenath Banerjee
+Author: Arpan Mandal
 
-Degree: B.Tech in Computer Science Engineering (AI & ML)
+Degree: B.Tech in Computer Science Engineering
 
 Institute: Haldia Institute of Technology
 
 Location: West Bengal, India
-
-### 🚀 Connect With Me
-
-📧 Email: lokenathb2005@gmail.com
-
-🔗 LinkedIn: https://www.linkedin.com/in/lokenath-banerjee-53a95928b/
-
-🐙 GitHub: https://github.com/LokenathBanerjee/
-
-Click below to open the live Streamlit app:
-[➡️ Go to Live App](https://rnn-project-1-gztzxmzqym594qsn4wemhp.streamlit.app/)
-
