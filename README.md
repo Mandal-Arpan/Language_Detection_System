@@ -1,138 +1,131 @@
-# 🌍 Language Detection Using Recurrent Neural Network (RNN)
+# 🌍 Language Detection System using RNN
 
 ## 📌 Project Overview
 
-Language detection is an important Natural Language Processing (NLP) task used in applications such as translation systems, search engines, and multilingual chatbots.  
-This project implements a **Recurrent Neural Network (RNN)** model to automatically **detect the language of a given text sentence**.
+This project is a deep learning-based **Language Detection System** built using a **Recurrent Neural Network (RNN)**. The model predicts the language of a given text sentence using Natural Language Processing (NLP) techniques.
 
-The system is designed as an **end-to-end deep learning application**, starting from data analysis and model training to deployment using a web interface.
+The project demonstrates a complete machine learning workflow including:
 
-The system is divided into three main components:
+- Data preprocessing
+- Model training and evaluation
+- Prediction pipeline
+- Interactive Streamlit web interface
 
-1. **Model Building & Training**
-2. **Prediction Pipeline**
-3. **Streamlit Web Application**
-
----
-
-## 🧠 1. Model Building & Training
-
-- The model is built using **TensorFlow (Keras)**.
-- A **multilingual text dataset** is used containing sentences from different languages.
-- To handle **class imbalance**, the model is trained using **class weights**.
-- Text preprocessing includes:
-  - Tokenization of text data
-  - Padding sequences to a fixed length
-  - Label encoding of language classes
-- A **Simple RNN** model is trained to learn sequential patterns in text.
-- The trained model is saved in **`.h5`** format.
-- The tokenizer and label encoder are serialized using **pickle** for reuse during prediction.
-
-### 📊 Model Training & Evaluation Results
-
-The model achieved strong performance on unseen test data:
-
-- **Training with Class Weights:** Enabled  
-- **Test Accuracy:** **95.96%**  
-- **Test Loss:** **0.1505**
-
-> These results indicate that the RNN model generalizes well and effectively captures language-specific patterns from text sequences.
-
-### 📁 Relevant Files
-
-- `eda.ipynb` – Exploratory Data Analysis on text data  
-- `prediction.ipynb` – Model training and evaluation  
-- `saved_model/simple_rnn_model.h5` – Trained RNN model  
-- `saved_model/tokenizer.pkl` – Saved tokenizer & label encoder  
+The application currently runs locally using Streamlit.
 
 ---
 
-## 🔍 2. Prediction Module
+# 🧠 Model Building & Training
 
-- User input text is taken in real time.
-- The input text is:
-  - Converted into sequences using the saved tokenizer
-  - Padded to the required input length
-- The processed text is passed to the trained RNN model.
-- The model outputs:
-  - **Predicted language**
-  - **Confidence score (probability)**
-
-This ensures that the same preprocessing steps used during training are applied during inference.
+- Built using **TensorFlow (Keras)**
+- Trained on a multilingual text dataset
+- Implemented:
+  - Text tokenization
+  - Sequence padding
+  - Label encoding
+  - Class weight balancing for imbalanced data
+- Used a **Simple RNN** architecture for sequential text learning
+- Saved trained model in `.h5` format
+- Serialized tokenizer and label encoder using `pickle`
 
 ---
 
-## 🌐 3. Streamlit Web Application
+# 📊 Model Performance
 
-An interactive **Streamlit-based web application** is developed to demonstrate the model.
+| Metric | Value |
+|---|---|
+| Test Accuracy | **95.96%** |
+| Test Loss | **0.1505** |
+| Class Weights | Enabled |
 
-### Features:
-- Text input area for user sentences
-- Example sentences for guidance
-- Real-time language prediction
+The model generalizes effectively on unseen multilingual text data.
+
+---
+
+# 🔍 Prediction Pipeline
+
+The prediction system performs:
+
+1. Text preprocessing  
+2. Tokenization using saved tokenizer  
+3. Sequence padding  
+4. Language prediction using trained RNN model  
+5. Confidence score generation  
+
+---
+
+# 🌐 Streamlit Application
+
+A local Streamlit web application was developed for real-time predictions.
+
+## Features
+
+- Real-time language detection
+- User text input
 - Confidence score display
-- Cached model loading for faster performance
+- Fast model loading using caching
+- Simple and interactive UI
 
-The Streamlit application:
-- Loads the trained RNN model
-- Loads the saved tokenizer and label encoder
-- Accepts user input and displays prediction results instantly
+---
 
-### ▶️ Run Locally
+# ▶️ Run Locally
 
 ```bash
 streamlit run app.py
-
-| Category             | Technologies                |
-| -------------------- | --------------------------- |
-| Programming Language | Python                      |
-| NLP & ML             | TensorFlow, Keras           |
-| Data Processing      | NumPy, Pandas               |
-| Machine Learning     | Scikit-learn                |
-| Visualization        | Matplotlib, Seaborn         |
-| Model Persistence    | Pickle                      |
-| Web Framework        | Streamlit                   |
-| Development Tools    | Jupyter Notebook, IPykernel |
 ```
-📄 All dependencies are listed in requirements.txt
 
-📁 Project Structure
-```
-├── app.py                         # Streamlit application
-├── eda.ipynb                      # Exploratory Data Analysis
-├── prediction.ipynb               # Model training & prediction
-├── requirements.txt               # Project dependencies
-├── .gitignore                     # Ignored files
-├── pic.png                        # UI banner image
+---
+
+# 🛠️ Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Deep Learning | TensorFlow, Keras |
+| NLP & ML | Scikit-learn |
+| Data Processing | NumPy, Pandas |
+| Visualization | Matplotlib, Seaborn |
+| Web Framework | Streamlit |
+| Model Persistence | Pickle |
+| Development Tools | Jupyter Notebook |
+
+---
+
+# 📁 Project Structure
+
+```bash
+├── app.py
+├── eda.ipynb
+├── prediction.ipynb
+├── requirements.txt
+├── .gitignore
+├── pic.png
 ├── saved_model/
-│   ├── simple_rnn_model.h5        # Trained RNN model
-│   └── tokenizer.pkl              # Tokenizer & label encoder
+│   ├── simple_rnn_model.h5
+│   └── tokenizer.pkl
 ```
 
-## ✅ Conclusion
+---
 
-This project demonstrates a complete NLP-based deep learning system, covering text preprocessing, RNN model training, and deployment using a web application.
+# ✅ Conclusion
 
-The use of class weights improves model robustness by handling class imbalance, resulting in high accuracy and reliable predictions.
+This project demonstrates an end-to-end NLP and deep learning workflow for multilingual language detection using RNNs. The system achieves high accuracy and provides an interactive interface for real-time predictions.
 
-## 🚀 Future Enhancements
+---
 
--Add more languages to the dataset
+# 🚀 Future Improvements
 
--Replace RNN with LSTM / GRU for better accuracy
+- Add support for more languages
+- Replace Simple RNN with LSTM/GRU
+- Display probability distribution for all languages
+- Deploy the application online
+- Improve UI/UX
 
-Display probability distribution for all languages
+---
 
--Deploy the application on Streamlit Cloud
+# 👤 Author
 
--Improve UI and user experience
-
-👤 Author Details
-
-Author: Arpan Mandal
-
-Degree: B.Tech in Computer Science Engineering
-
-Institute: Haldia Institute of Technology
-
-Location: West Bengal, India
+**Arpan Mandal**  
+B.Tech in Computer Science Engineering  
+Haldia Institute of Technology  
+West Bengal, India
